@@ -1,8 +1,10 @@
--- JOIN
+--NATURAL JOIN => ambas columnas deden tener una columna con nombre iguail y el mismo tipo de dato
+--JOIN => debemos especificar las columnas a comparar, USING(nombreColumnaComun)
+--CROSS JOIN =>   producto cartesiano
+
+--JOIN
 --video 32
-
-
--- NATURAL  JOIN
+-- NATURAL JOIN
 
 --region canada
 SELECT region_name
@@ -15,7 +17,7 @@ DESC countries;
 
 SELECT country_name
 FROM countries NATURAL JOIN regions
-WHERE region_name = 'Americas';
+WHERE region_name = 'Americas'; 
 
 -- JOIN
 -- usa las sentencias USER y ON
@@ -48,7 +50,8 @@ SELECT COUNT(*) FROM regions CROSS JOIN countries;
 -- video 33
 -- Sintaxis: SELECT tabla1.column1, table2.column1,....
 --           FROM table1 NTUTAL JOIN table2;
---	debe existir una columna en colun en hamas tablas, mismo nombre y mismo tipo  
+--	debe existir una columna en colunm en hambas tablas, mismo nombre y mismo tipo 
+-- si no existe la columna común funciona como un CROSS JOIN
 
 SELECT *
 FROM locations NATURAL JOIN countries;
@@ -81,9 +84,11 @@ FROM jobs, countries;
 -- cuando uso NATURAL JOIN, no puedo usar alias de tabla en la clausua select
 -- Oracle se encarga de descubrir las columnas comunes
 -- las no comunes is las puedo especificar con los alias de tablas
-SELECT employee_id, jod_id, department_id,
+SELECT employee_id, job_id, department_id,
 	e.last_name, e.hire_date, jh.end_date
 FROM job_history jh NATURAL JOIN employees e;
+-- no podemos especificar un alias para las comunmas comunes en el NATURAL JOIN
+-- las no comunes si usamos el alias
 
 -----------------------------------------------------
 --UNIENDO MULTIPLES TABLAS

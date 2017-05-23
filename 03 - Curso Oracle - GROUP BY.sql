@@ -121,5 +121,32 @@
     WHERE  department_id IN (50, 60, 80, 110)
     GROUP BY department_id
     HAVING COUNT(*) > 1;
-     
     
+    SELECT job_id, AVG(salary), COUNT(*)
+    FROM employees
+    GROUP BY job_id;
+    
+    SELECT job_id, AVG(salary), COUNT(*)
+    FROM employees
+    GROUP BY job_id
+    HAVING AVG(salary) > 10000
+    ORDER BY 2 DESC;
+     
+     --promedio mayor a 10000 cuando el conteo de empleados sea mayor a 1
+    SELECT job_id, AVG(salary), COUNT(*)
+    FROM employees
+    GROUP BY job_id
+    HAVING AVG(salary) > 10000 AND COUNT(*) > 1
+    ORDER BY 2 DESC;
+    --HAVING solo se usa con grupos, no puede existir sin las funciones de agrupamiento
+    
+    /*
+    identificar los dias de la semana en los cuales 15 o mas stak
+    fueron contratados. listar los dias y el numero de empelados contratados en cada uno de ellos
+    */
+    
+    SELECT TO_CHAR(hire_date, 'DAY'), COUNT(*)
+    FROM employees
+    GROUP BY TO_CHAR(hire_date, 'DAY')
+    HAVING COUNT(*) >= 15
+    ORDER BY COUNT(*);

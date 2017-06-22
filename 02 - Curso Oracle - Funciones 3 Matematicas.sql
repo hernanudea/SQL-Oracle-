@@ -10,6 +10,7 @@
   --ACOS(), ASIN(n),ATAN(n), COS(n), SEN(n), TAN(n)  =>funciones trigonometricas, en radianes
   SELECT ACOS(-1), ACOS(0), ACOS(.045) FROM dual;
   
+  
   --CEIL() =>entero mas pequeño mayor o igual a n
   SELECT CEIL(9.8), CEIL(-7.8), CEIL(0), CEIL(5) FROM dual;
   
@@ -17,7 +18,7 @@
   SELECT FLOOR(9.8), FLOOR(-7.8), FLOOR(0), FLOOR(5) FROM dual;
   
   --EXP(N) => exponencial
-  SELECT EXP(1) "e"FROM DUAL;
+  SELECT EXP(1) "e" FROM DUAL;
   
   --LN => LOGARITMO NATURAL
   

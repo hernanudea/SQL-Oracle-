@@ -1,9 +1,9 @@
 --VIDEO 23
 --FUNCIONES PARA DATOS NULOS
---NLV, NVL2, COALSCE
+--NVL, NVL2, COALESCE
 
 
---NLV(x1, x2) => si x1 es no null lo regresa, si x2 es no null y x2 si, entonces regresa x2
+--NVL(x1, x2) => si x1 es no null lo regresa, si x2 es no null y x2 si, entonces regresa x2
 SELECT last_name, NVL(department_id, 0), department_id
 FROM employees
 ORDER BY 2;
@@ -13,6 +13,7 @@ SELECT first_name, salary, commission_pct,
       salary + (salary * commission_pct) "Compensación"
 FROM employees
 WHERE first_name LIKE 'T%';
+
 -- reemplazando con cero
 SELECT first_name, salary, NVL(commission_pct, 0),
       salary + NVL(salary * commission_pct, 0) "Compensación"
@@ -55,7 +56,7 @@ FROM countries;
 
 SELECT GREATEST('01-ABR-08', '30-DIC-08','20-ENE-10') FROM dual;
 --estos datos son cadenas, se acomodan de menor a mayor como cadenas
---el primer tipo de datoq de la lista, indica que tipo van a aser los siguientes
+--el primer tipo de datos de la lista, indica que tipo van a ser los siguientes
 
 SELECT GREATEST(TO_DATE('01-ABR-2008', 'DD-Mon-YYYY'), '30-DIC-08','20-ENE-10') FROM dual;
 

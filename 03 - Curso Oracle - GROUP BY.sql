@@ -11,7 +11,7 @@
  
  -- para poder agrupar por una caracteristica, esta debe estar en el select
  
- --buscar el munero de empleados que tiene cada uno de lo smanager
+ --buscar el munero de empleados que tiene cada uno de lo manager
  SELECT COUNT(*), manager_id
  FROM employees
  GROUP BY manager_ID
@@ -31,7 +31,7 @@
    GROUP BY region_id
    ORDER BY region_id;
    
-   --buscar los empleados que na renunciado por cada año
+   --buscar los empleados que han renunciado por cada año
    SELECT TO_CHAR(end_date, 'yyyy') "Año",
       COUNT(*) Empleados
     FROM job_history
@@ -48,7 +48,7 @@
     
     SELECT end_date, COUNT(*)
     FROM job_history;  --arroja error
-    --todas las columnas que no son de agrupación deben estar en un grup by
+    --todas las columnas que no son de agrupación deben estar en un group by
     SELECT end_date, COUNT(*)
     FROM job_history
     GROUP BY end_date;
@@ -84,7 +84,7 @@
     --Ejercicio
     
     SELECT TO_CHAR(end_date, 'yyyy'), job_id, COUNT(*)
-    from job_history
+    FROM job_history
     GROUP BY TO_CHAR(end_date, 'yyyy'), job_id
     ORDER BY COUNT(*) DESC;
     
@@ -105,13 +105,13 @@
     FROM job_history
     WHERE  department_id IN (50, 60, 80, 110);
     
-    --conteno de empleados en el departamentoq ue cambiaron de trabajo
+    --conteo de empleados en el departamento que cambiaron de trabajo
     
     SELECT department_id, COUNT(*)
     FROM job_history
     WHERE  department_id IN (50, 60, 80, 110)
     GROUP BY department_id;
-    --cuando usanod WHERE, la cluasula GROUP BY va despues de esta
+    --cuando usamos WHERE, la cluasula GROUP BY va despues de esta
     --si nos dijeran mayor a 1
     --no podemos hacer funciones de agrupacion fuera de GROUP BY
     --no podemos usar el AND en el WHERE
@@ -142,7 +142,7 @@
     
     /*
     identificar los dias de la semana en los cuales 15 o mas stak
-    fueron contratados. listar los dias y el numero de empelados contratados en cada uno de ellos
+    fueron contratados. listar los dias y el numero de empleados contratados en cada uno de ellos
     */
     
     SELECT TO_CHAR(hire_date, 'DAY'), COUNT(*)

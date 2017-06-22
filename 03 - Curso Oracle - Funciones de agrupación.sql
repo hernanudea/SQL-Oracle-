@@ -20,11 +20,11 @@ SELECT AVG(commission_pct) FROM employees;
 
 --cantidad tiempo que han trabajado en el area de programación
 
-SELECT last_name, job_id, ROUND((SYSDATE - hire_date) / 365.25, 2) "Años Trbajados"
+SELECT last_name, job_id, ROUND((SYSDATE - hire_date) / 365.25, 2) "Años Trabajados"
 FROM employees
 WHERE job_id = 'IT_PROG';
 
-SELECT ROUND(AVG((SYSDATE - hire_date) / 365.25), 2) "Años Trbajados"
+SELECT ROUND(AVG((SYSDATE - hire_date) / 365.25), 2) "Años Trabajados"
 FROM employees
 WHERE job_id = 'IT_PROG';
 
@@ -37,7 +37,7 @@ WHERE job_id = 'IT_PROG';
 SELECT SUM(salary) from employees;
 --todos cuyos valores no son nulos
 
-SELECT salary FROM employees WHERE salary IN NULL;
+SELECT salary FROM employees WHERE salary IS NULL;
 
 SELECT sum(2) from employees;
 --suma 2 por cada registro en el resustado de la consulta
@@ -70,7 +70,7 @@ SELECT MIN(hire_date), MIN(salary), MAX(hire_date), MAX(salary)
 FROM employees
 WHERE JOB_ID = 'SA_REP';
 
---calular el promedio de la longitud de el nombre de todos los paises, redondear al siguiente entero
+--calcular el promedio de la longitud de el nombre de todos los paises, redondear al siguiente entero
 
 SELECT ROUND(AVG(LENGTH(country_name))) "Promedio de Longitudes"
 FROM countries;   

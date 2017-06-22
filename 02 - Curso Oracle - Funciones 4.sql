@@ -4,7 +4,7 @@
 
 SELECT TO_CHAR(10) FROM dual;
 SELECT TO_CHAR(0000001) FROM dual;
-SELECT TO_CHAR(000001, '0999999') FROM dual;
+SELECT TO_CHAR(000001, '09999999') FROM dual;
 --el 9 representa un digito
 --el cero inicial indica que si el numero tiene ceros al comienzo estos se deben mantener
 
@@ -21,6 +21,8 @@ SELECT TO_CHAR(SYSDATE, 'Month') FROM dual;
 SELECT TO_CHAR(SYSDATE, 'MM') FROM dual;
 SELECT TO_CHAR(SYSDATE, 'Mon') FROM dual;
 SELECT TO_CHAR(SYSDATE, 'YEAR') FROM dual;
+SELECT TO_CHAR(SYSDATE, 'YY') FROM dual;
+SELECT TO_CHAR(SYSDATE, 'YYYY') FROM dual;
 SELECT TO_CHAR(SYSDATE, 'DAY') FROM dual;
 SELECT TO_CHAR(SYSDATE, 'DD') FROM dual;
 SELECT TO_CHAR(SYSDATE, 'D') FROM dual;
@@ -47,7 +49,7 @@ from dual;
 
 ALTER SESSION SET nls_date_format = 'DD-Mon-RRRR HH24:MI:SS';
 --el cambio es solo a nivel de sección
---los parametros no indicados se ponene con ceros
+--los parametros no indicados se pone en con ceros
 
 SELECT TO_DATE('25_Dic_2017') from dual;
 
@@ -95,7 +97,7 @@ ORDER BY hire_Date;
          LAST_DAY(SYSDATE) + 1 "SIGUIENTE MES" --primer dia siguiente mes 
         FROM dual;
         
-        --si sumamos a una fecha un entero sumanos (restamos) esa cantidad de dias en la fecha
+        --si sumamos (restamos) a una fecha un entero, esa cantidad de dias en la fecha
         
         ALTER SESSION SET NLS_DATE_FORMAT='DD-Mon-YYYY HH24:MI:SS';
         
@@ -105,7 +107,7 @@ ORDER BY hire_Date;
                   ROUND(SYSDATE, 'MM') "REDONDEO MESES",
                   ROUND(SYSDATE, 'YY') "REDONDEO AÑOS"
   FROM dual;
-  --desde la mitad del ia se redondea al siguiente dia
+  --desde la mitad del dia se redondea al siguiente dia
   
   
   --TRUNC(d, [fmt]) => reemplaza en una fecha

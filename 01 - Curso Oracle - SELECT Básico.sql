@@ -9,15 +9,14 @@ SELECT job_id,
       max_salary
       FROM jobs;
 
---usando alias , debo usar comillas "" si quiero que respete masyusculas y monnusculas
+--usando alias , debo usar comillas "" si quiero que respete masyusculas y minusculas
 SELECT job_id AS "Trabajo", 
       min_salary AS Minimo,
       max_salary AS Maximo
       FROM jobs;
-
       desc EMPLOYEES;
       
---usaremos la sentencia DISTICG para que no muestre valores duplicados
+--usaremos la sentencia DISTINCT para que no muestre valores duplicados
 SELECT department_id FROM employees;
 
 SELECT DISTINCT department_id FROM employees;
@@ -107,11 +106,11 @@ FROM EMPLOYEES
 WHERE NOT DEPARTMENT_ID > 30; 
 
 --AND, que cumpla ambas condiciones
-SELECT first_name, salary
+SELECT first_name, last_name, salary
 FROM EMPLOYEES
 WHERE last_name = 'Smith' AND salary > 7500;
 
---OR, anguno cumpla la condicion
+--OR, alguno cumpla la condicion
 SELECT first_name, last_name
 FROM EMPLOYEES
 WHERE first_name = 'Kelly' OR last_name = 'Smith';
@@ -122,12 +121,12 @@ SELECT first_name, last_name, salary
 FROM EMPLOYEES
 WHERE salary BETWEEN 5000 AND  6000;
 
---con los ostros operadores
+--con los otros operadores
 SELECT first_name, last_name, salary
 FROM EMPLOYEES
 WHERE salary >= 5000 AND  salary <=6000;
 
---% Comodin, empresa una cadena de caracteres
+--% Comodin, espresa una cadena de caracteres
 --empieza por Su
 SELECT first_name, last_name
 FROM EMPLOYEES
@@ -149,12 +148,12 @@ FROM EMPLOYEES
 WHERE first_name LIKE '%m%';
 
 
--- para consultar cuales son null se unsa IS
+-- para consultar cuales son NULL se usa IS
 SELECT first_name, last_name
 FROM EMPLOYEES
 WHERE department_id IS NULL;
 
--- para consultar los que nos null
+-- para consultar los que NO son null
 SELECT first_name, last_name
 FROM EMPLOYEES
 WHERE department_id IS NOT NULL;

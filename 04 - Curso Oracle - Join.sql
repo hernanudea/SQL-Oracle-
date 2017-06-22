@@ -1,4 +1,4 @@
---NATURAL JOIN => ambas columnas deden tener una columna con nombre iguail y el mismo tipo de dato
+--NATURAL JOIN => ambas tablas deden tener una columna con nombre igual y el mismo tipo de dato
 --JOIN => debemos especificar las columnas a comparar, USING(nombreColumnaComun)
 --CROSS JOIN =>   producto cartesiano
 
@@ -20,7 +20,7 @@ FROM countries NATURAL JOIN regions
 WHERE region_name = 'Americas'; 
 
 -- JOIN
--- usa las sentencias USER y ON
+-- usa las sentencias USING y ON
 -- USING: es necesario que las dos tablas tengan un campo con el mismo nombre
 -- ON: 
 
@@ -38,7 +38,7 @@ WHERE region_name = 'Americas';
 
 
 -- CROSS JOIN
--- relaciona todas los campos de las tablas, es un ptoducto de las tablas 
+-- relaciona todas los campos de las tablas, es un producto de las tablas 
 SELECT COUNT(*) FROM countries;  --25
 SELECT COUNT(*) FROM regions;  --4
 
@@ -49,13 +49,13 @@ SELECT COUNT(*) FROM regions CROSS JOIN countries;
 -- JOIN NATURAL
 -- video 33
 -- Sintaxis: SELECT tabla1.column1, table2.column1,....
---           FROM table1 NTUTAL JOIN table2;
---	debe existir una columna en colunm en hambas tablas, mismo nombre y mismo tipo 
--- si no existe la columna común funciona como un CROSS JOIN
+--           FROM table1 NATURAL JOIN table2;
+--	debe existir una columna en común en hambas tablas, mismo nombre y mismo tipo 
+--  si no existe la columna común funciona como un CROSS JOIN
 
 SELECT *
 FROM locations NATURAL JOIN countries;
---otra forma de hacer lo mismo, la anterior s mas usada y libera la clausula where
+--otra forma de hacer lo mismo, la anterior mas usada y libera la clausula where
 --si no se llaman igual las columnas no se puede usar
 
 SELECT *
@@ -69,7 +69,7 @@ WHERE l.country_id = c.country_id;
 
 DESC jobs;
 DESC countries;
---no tiene columna común, por lo que la sigueinte columna mostraria muchos resultados jobs*countries
+--no tiene columna común, por lo que la siguiente columna mostraria muchos resultados jobs*countries
 
 SELECT *
 FROM jobs NATURAL JOIN countries;
@@ -83,11 +83,11 @@ FROM jobs, countries;
 
 -- cuando uso NATURAL JOIN, no puedo usar alias de tabla en la clausua select
 -- Oracle se encarga de descubrir las columnas comunes
--- las no comunes is las puedo especificar con los alias de tablas
+-- las no comunes si las puedo especificar con los alias de tablas
 SELECT employee_id, job_id, department_id,
 	e.last_name, e.hire_date, jh.end_date
 FROM job_history jh NATURAL JOIN employees e;
--- no podemos especificar un alias para las comunmas comunes en el NATURAL JOIN
+-- no podemos especificar un alias para las colunmas comunes en el NATURAL JOIN
 -- las no comunes si usamos el alias
 
 -----------------------------------------------------
@@ -103,17 +103,17 @@ FROM job_history jh NATURAL JOIN employees e;
 
 DESC departments;
 
-SELECT d.department.name, l.city, c.country_name, r.region_name
+SELECT d.department_name, l.city, c.country_name, r.region_name
 FROM departments d
 NATURAL JOIN locations l
-NATURAL JOIN coutries c
+NATURAL JOIN countries c
 NATURAL JOIN regions r;
 
 --ahora lo mismo usando JOIN ON
-SELECT d.department.name, l.city, c.country_name, r.region_name
+SELECT d.department_name, l.city, c.country_name, r.region_name
 FROM departments d
 JOIN locations l ON(d.location_id = l.location_id)
-JOIN coutries c ON(l.country_id = c.country_id)
+JOIN countries c ON(l.country_id = c.country_id)
 JOIN regions r ON(c.region_id = r.region_id);
 
 

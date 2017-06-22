@@ -9,8 +9,8 @@ SELECT CONCAT('Esto es una cadena.',' Otra cadena') FROM dual;
 SELECT CONCAT(CONCAT('UNO',' DOS'), ' TRES')  FROM dual;  
 
 --usando las dos formas de concatenar en el mismo SELECT
-SELECT CONCAT(CONCAT(first_name, ' '), last_name) "Nombre Empelado", 
-        first_name || ' ' || last_name AS "Nombre Empelado 2"
+SELECT CONCAT(CONCAT(first_name, ' '), last_name) "Nombre Empleado", 
+        first_name || ' ' || last_name AS "Nombre Empleado 2"
       from employees
       WHERE department_id= 30;
 
@@ -22,7 +22,7 @@ SELECT CONCAT(CONCAT(first_name, ' '), last_name) "Nombre Empelado",
   --muestra los caranteres desde el 10 hasta el final
   SELECT SUBSTR('Esto es una cadena muy larga de ejemplo', 10) from dual;
   
-  --si quieri mostrar desde un indice hasta otro, y, es cantidad
+  --si quiero mostrar desde un indice hasta otro, y, es cantidad
 SELECT SUBSTR('Esto es una cadena muy larga de ejemplo', 10, 2) from dual;
 
 --(10000-8)= 9992, iniciando en indice 3 y mostrando dos caracteres 92
@@ -46,7 +46,7 @@ SELECT file_name
 FROM dba_data_files;
 
 --si no queiero el nombre tan largo
---busco la posicion de la diganal
+--busco la posicion de la diaganal
 
 --funcion INTSTR, retorna la posicion donde encuentra la primera aparicion de un caracter en un string
 --sintaxis: INTSTR(cadena, 'caracter')
@@ -67,7 +67,7 @@ FROM DBA_DATA_FILES;
 --por defecto el tercer y cuarto parametro estan en 1
 
 SELECT INSTR('Hola mundo', 'mu') from dual;
---sencible a myusculas minusculas
+--sencible a mayusculas y minusculas
 
 SELECT INSTR('Hola mundo', 'otracadena') from dual;
 --si no está retorna 0(cero)
